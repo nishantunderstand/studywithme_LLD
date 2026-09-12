@@ -1,0 +1,91 @@
+@startuml
+
+' ==== Main Entrypoint ====
+class Main {
+  + static void main(String[] args)
+}
+
+' ==== Game Orchestration ====
+class TicTacToeGame {
+  - Board board
+  - Player playerX
+  - Player playerO
+  - Player currentPlayer
+  - GameContext gameContext
+  - PlayerStrategy xStrategy
+  - PlayerStrategy oStrategy
+  - int rows
+  - int columns
+
+  + TicTacToeGame(PlayerStrategy xStrategy, PlayerStrategy oStrategy, int rows, int columns)
+  + void play()
+  + void switchPlayer()
+  + void announceResult()
+}
+
+' ==== Game Context (State Pattern) ====
+class GameContext {
+  - GameState currentState
+  + void setState(GameState state)
+  + boolean isGameOver()
+}
+
+interface GameState {
+  + boolean isGameOver()
+}
+class InProgressState implements GameState
+class WonState implements GameState
+class DrawState implements GameState
+
+' ==== Domain Entities ====
+entity Board {
+  - int rows
+  - int columns
+  - Symbol[][] grid
+
+  + Board(int rows, int columns)
+  + boolean isValidMove(Position pos)
+  + void makeMove(Position pos, Symbol symbol)
+  + void checkGameState(GameContext context)
+  - boolean isWinningLine(Symbol[] line)
+}
+
+entity Player {
+  - Symbol symbol
+  - PlayerStrategy strategy
+
+  + Player(Symbol symbol, PlayerStrategy strategy)
+  + Position makeMove(Board board)
+  + Symbol getSymbol()
+}
+
+entity Position {
+  - int row
+  - int col
+  + Position(int row, int col)
+}
+
+enum Symbol {
+  X
+  O
+  EMPTY
+}
+
+' ==== Strategy Pattern ====
+interface PlayerStrategy {
+  + Position makeMove(Board board)
+}
+class HumanPlayerStrategy implements PlayerStrategy
+
+' ==== Relationships ====
+Main --> TicTacToeGame
+TicTacToeGame *-- Board
+TicTacToeGame *-- Player
+TicTacToeGame *-- GameContext
+Player --> PlayerStrategy
+Board --> Position
+Board --> Symbol
+Player --> Symbol
+GameContext --> GameState
+
+@enduml

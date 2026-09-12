@@ -1,0 +1,44 @@
+@startuml
+
+' ===== Parking Lot Design =====
+
+abstract class Vehicle {
+  - vehicleID : String
+  - vehicleType : String
+}
+
+class Car
+class Bike
+
+Car --|> Vehicle
+Bike --|> Vehicle
+
+class ParkingSpot {
+  - spotID : String
+  - spotType : String
+  - isOccupied : Boolean
+}
+
+class Ticket {
+  - ticketID : String
+  - entryTime : Date
+  - exitTime : Date
+}
+
+Vehicle "1" --> "*" ParkingSpot : parks in
+Ticket "1" --> "1" Vehicle : issued for
+
+' ===== Strategy Design Pattern =====
+interface PaymentStrategy {
+  + pay(amount: Double) : void
+}
+
+class CreditCardPayment
+class UPIPayment
+class CashPayment
+
+CreditCardPayment ..|> PaymentStrategy
+UPIPayment ..|> PaymentStrategy
+CashPayment ..|> PaymentStrategy
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+title Payment Strategy Design Pattern (Simplified)
+
+interface PaymentStrategy {
+  + pay() : void
+}
+
+class UPIPayment {
+  + pay() : void
+}
+
+class CreditCardPayment {
+  + pay() : void
+}
+
+class PaymentContext {
+  - paymentStrategy : PaymentStrategy
+  + setPaymentStrategy(strategy : PaymentStrategy) : void
+  + executePayment() : void
+}
+
+class Client {
+  + main(args : String[]) : void
+}
+
+PaymentStrategy <|.. UPIPayment
+PaymentStrategy <|.. CreditCardPayment
+PaymentContext --> PaymentStrategy : uses
+Client --> PaymentContext : calls
+
+@enduml
+
+note bottom
+| Arrow       | Meaning               | Role                             |
+| ----------- | --------------------- | -------------------------------- |
+| `--> uses`  | Delegation dependency | “I need your help to do my job.” |
+| `--> calls` | Invocation dependency | “I directly invoke your method.” |

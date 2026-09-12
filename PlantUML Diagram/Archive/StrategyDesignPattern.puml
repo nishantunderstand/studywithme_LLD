@@ -1,0 +1,31 @@
+@startuml
+title Strategy Design Pattern - PaymentProcessor
+
+interface PaymentStrategy {
+    +pay(amount: double)
+}
+
+class CashPayment implements PaymentStrategy {
+    +pay(amount: double)
+}
+
+class UPIPayment implements PaymentStrategy {
+    +pay(amount: double)
+}
+
+class CardPayment implements PaymentStrategy {
+    +pay(amount: double)
+}
+
+class PaymentProcessor {
+    -strategy: PaymentStrategy
+    +setStrategy(strategy: PaymentStrategy)
+    +processPayment(amount: double)
+}
+
+PaymentProcessor --> PaymentStrategy : uses
+PaymentStrategy <|.. CashPayment
+PaymentStrategy <|.. UPIPayment
+PaymentStrategy <|.. CardPayment
+
+@enduml

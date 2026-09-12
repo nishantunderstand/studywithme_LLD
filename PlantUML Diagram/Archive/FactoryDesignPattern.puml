@@ -1,0 +1,28 @@
+@startuml
+enum DocumentType {
+  TEXT
+  SPREADSHEET
+  PRESENTATION  
+}
+
+
+abstract class DocumentProcessor {
+  - documentName : String
+  + supportsType() : DocumentType
+  + processDocument() : void
+}
+
+DocumentProcessorFactory --> DocumentProcessor : creates
+DocumentProcessor <|-- TextDocumentProcessor
+DocumentProcessor <|-- PresentationDocumentProcessor
+DocumentProcessor <|-- SpreadsheetDocumentProcessor
+@enduml
+
+
+
+/**
+
+Factory Design Pattern 
+Simple Factory Design Pattern 
+Abstract Factory Design Pattern
+*/

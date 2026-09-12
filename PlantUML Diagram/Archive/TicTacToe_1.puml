@@ -1,0 +1,54 @@
+@startuml
+
+class BoardGame {
+  - size : int
+  - board : Cell[][]
+  - moveCount : int
+  + initializeBoard() : void
+  + printBoard() : void
+  + isFull() : boolean
+  + makeMove(player: Player, row: int, col: int) : boolean
+  + checkWinner() : GameState
+}
+
+class Cell {
+  - row : int
+  - col : int
+  - symbol : Symbol
+  + getSymbol() : Symbol
+  + setSymbol(symbol: Symbol) : void
+}
+
+enum Symbol {
+  X
+  O 
+  EMPTY
+}
+
+class Player {
+  - name : String
+  - symbol : Symbol
+  + getName() : String
+  + getSymbol() : Symbol
+}
+
+enum GameState {
+  IN_PROGRESS
+  WINNER_X
+  WINNER_O
+  DRAW
+}
+
+interface WinningStrategy {
+  + checkWin(board: Cell[][], symbol: Symbol) : boolean
+}
+
+class RowWinningStrategy implements WinningStrategy
+class ColumnWinningStrategy implements WinningStrategy
+class DiagonalWinningStrategy implements WinningStrategy
+
+BoardGame --> Player
+BoardGame --> Cell
+BoardGame --> WinningStrategy
+
+@enduml
