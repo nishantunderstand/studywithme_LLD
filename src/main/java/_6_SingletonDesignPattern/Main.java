@@ -12,7 +12,6 @@ public class Main {
         System.out.println(obj1 == obj2); // true
         obj1.doSomething();
 
-
         System.out.println("====== Thursday, August 20, 2026 8:11:14 PM ======\n");
         B_EagerInstantiated_StaticBlockSingleton instance1 = B_EagerInstantiated_StaticBlockSingleton.getInstance();
         B_EagerInstantiated_StaticBlockSingleton instance2 = B_EagerInstantiated_StaticBlockSingleton.getInstance();

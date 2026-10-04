@@ -1,5 +1,5 @@
 package _6_SingletonDesignPattern;
 
-public class singleton {
+public class Singleton {
 
 }
