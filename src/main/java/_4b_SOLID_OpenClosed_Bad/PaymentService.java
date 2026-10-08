@@ -17,6 +17,5 @@ public class PaymentService {
     }
 }
 
-
 // TODO
 // If we have nested if-else  Don't you think Strategy Design Pattern is the best Answer for this case

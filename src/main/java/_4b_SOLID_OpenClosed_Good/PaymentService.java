@@ -8,3 +8,7 @@ public class PaymentService {
         payment.pay();
     }
 }
+
+
+// Here it start taking input of Payment which is interface.
+// So at runtime, I can change it.
