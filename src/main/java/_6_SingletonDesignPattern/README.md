@@ -10,7 +10,6 @@ package _6_SingletonDesignPattern;
 
 ---
 
-
 public class _SingletonTemplate {
 
 Constructor : private Default
@@ -27,4 +26,18 @@ Static getInstance : for Instance Retrieval
 2. b) private static variable instance of same type as of class
 3. c) Providing public static method getInstance()
 
-}
+
+Types 
+1. Eager
+2. Eager Static 
+3. Lazy
+4. Lazy Thread Safe
+5. Lazy Double Checking Lock
+6. Bill Pugh
+7. Enum Singleton
+
+---
+
+How to safe from ?
+1. Serialization
+2. Reflection 
