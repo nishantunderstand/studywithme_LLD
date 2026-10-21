@@ -8,21 +8,23 @@ package _6_SingletonDesignPattern;
  */
 
 
+---
+
 
 public class _SingletonTemplate {
 
 Constructor : private Default
 
 Field :
-private static ClassType : 90 % of Time
-private static final ClassType
-volatile : When Thread Saftey
+1. private static ClassType : 90 % of Time 
+2. private static final ClassType 
+3. volatile : When Thread Saftey
 
 Static getInstance : for Instance Retrieval
 
 <---  Standard Approach --->
-a) Hiding the constructors
-b) private static variable instance of same type as of class
-c) Providing public static method getInstance()
+1. a) Hiding the constructors
+2. b) private static variable instance of same type as of class
+3. c) Providing public static method getInstance()
 
 }
