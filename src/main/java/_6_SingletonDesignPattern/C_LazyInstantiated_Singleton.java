@@ -18,4 +18,15 @@ public class C_LazyInstantiated_Singleton {
         }
         return instance;
     }
+
+    public static void main(String[] args){
+        C_LazyInstantiated_Singleton ob1 = C_LazyInstantiated_Singleton.getInstance();
+        C_LazyInstantiated_Singleton ob2 = C_LazyInstantiated_Singleton.getInstance();
+        System.out.println(ob1 == ob2);
+    }
 }
+
+
+// Why final is removed here ?
+// Final is declared Exactly once at the time of declaration
+// Yes, correct. In Java, a final variable must be initialized exactly once before it is used.

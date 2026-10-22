@@ -40,3 +40,4 @@ public class E_LazyInstantiated_DoubleCheckingSingleton {
 // Why Volatile
 // Why private constructor
 // Why Synchronized
+// How does volatile establish happens-before?
