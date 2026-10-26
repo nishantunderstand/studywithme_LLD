@@ -1,4 +1,4 @@
-package _3_OOPS_Inheritance_HAS_A;
+package _3b_OOPS_Inheritance_HAS_A;
 
 public class Main {
     public static void main(String[] args) {

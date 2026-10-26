@@ -1,4 +1,4 @@
-package _3_OOPS_Inheritance_IS_A;
+package _3a_OOPS_Inheritance_IS_A;
 
 public class Vechile {
     void start(){
