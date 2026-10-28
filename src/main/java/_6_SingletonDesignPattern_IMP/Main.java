@@ -1,4 +1,4 @@
-package _6_SingletonDesignPattern;
+package _6_SingletonDesignPattern_IMP;
 
 /**
  * Created : 2026-08-15 12:16:00
